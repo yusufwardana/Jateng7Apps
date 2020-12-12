@@ -19,8 +19,7 @@ echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="'.$ur['blog_dir'].'vendor/swiper/css/swiper.min.css" rel="stylesheet">
     <link href="'.$ur['blog_dir'].'css/j7apps.css" rel="stylesheet" id="style">';
-    //echo $csrftoken; 
-   // echo $cssextra;
+
 echo '</head>';
 if($ur["datapage"]){ 
 	echo '

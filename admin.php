@@ -8,8 +8,6 @@ include 'header2.php';
 //$data = "1994-03-07";
 $tglNow = date("d");
 $blnNow = date("m");
-//$now = date("Y-m-d");
-//$data = "1994-03-07";
 echo '<div class="card">';
                                 
 echo '  <p>Type something in the input field to search the list for specific items:</p>  
