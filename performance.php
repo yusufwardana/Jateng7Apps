@@ -14,7 +14,7 @@
                                         </div>
                                     </div>
                                     <div class="col align-self-center pl-0">
-                                        <h6 class="mb-1">Report Daily BM</h6>
+                                        <h6 class="mb-1">Report Daily CO</h6>
                                         <p class="text-secondary">Input Daily Perform</p>
                                     </div>
                                 </div>
