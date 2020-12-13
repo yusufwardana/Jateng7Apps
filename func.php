@@ -1,7 +1,7 @@
 <?php
 
 $ur = array();
-$ur["screenloader"] = FALSE;
+$ur["screenloader"] = TRUE;
 $ur["datapage"] = "homepage";
 
 

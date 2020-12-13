@@ -1,5 +1,4 @@
 <?php
-
 //session_start();
 require("header.php");
 	if(isset($_GET['page'])){
@@ -63,7 +62,7 @@ require("header.php");
 			  //$ur['active3'] = "";
 			  pageheader($ur);
 				include "calc.php";
-				
+		
 				break;								
 			default:
 				echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";

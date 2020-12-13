@@ -1,3 +1,10 @@
+<?php
+
+include 'header.php';
+$ur['title'] = "RR Adjusted Calc";
+pageheader($ur);
+?>
+
 <div class="row">
 	<div class="col col-md-12">
 		<div class="card mb-4">
@@ -62,8 +69,7 @@
                </div>
            </form>  
         <?php
-        
-        if($_GET)
+        if ($_GET):
         $a = (double) @$_GET['a'];
         $b = (double) @$_GET['b'];
         $c = (double) @$_GET['c'];
@@ -74,7 +80,7 @@
        $hasil2 = $hasil1 + $d + $e;
        $hasilakhir = $hasil2/$a;
        $rradj = round($hasilakhir*100,2);
-       
+    
        $gapvalue = round($hasilakhir,2) - 0.85;
        if($gapvalue < 0){
        	$gap = "Dibutuhkan growth " .($gapvalue*-100)."% untuk mencapai 85%";
@@ -111,7 +117,11 @@
                   <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: <?php echo($rradj."%") ?>" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo($rradj."%") ?></div>
                 </div> 
       </div>
-      
+       <?php endif; ?>
     </div>
   </div>
 </div>
+
+<?php
+include 'footer.php';
+?>
