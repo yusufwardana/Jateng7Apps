@@ -1,16 +1,13 @@
+<div class="main-container"><div class="container">
+
 <?php
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
-$ur['title'] = "Happy Birthday";
-$pagecontent_start = "";
-include 'header2.php';
+
 //$data = "1994-03-07";
 $tglNow = date("d");
 $blnNow = date("m");
 //$now = date("Y-m-d");
 //$data = "1994-03-07";
-if ($stmt = mysqli_query($con, "SELECT * FROM accounts WHERE DAY(birthday) = '$tglNow' AND MONTH(birthday) = '$blnNow'")) {
+if ($stmt = mysqli_query($connect, "SELECT * FROM accounts WHERE DAY(birthday) = '$tglNow' AND MONTH(birthday) = '$blnNow'")) {
 while ($row=mysqli_fetch_array($stmt,MYSQLI_ASSOC)){
 
    
@@ -57,6 +54,5 @@ while ($row=mysqli_fetch_array($stmt,MYSQLI_ASSOC)){
 
 }
 
-mysqli_close($con);
-include 'footer2.php';
 ?>
+</div></div>

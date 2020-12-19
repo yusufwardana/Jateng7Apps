@@ -39,7 +39,7 @@ foreach($jsondata as $key => $value){
 	 
 echo '<tr>
 			
-			<td><a href='.$ur['root'].'resume.php?id='.strtolower(str_replace(' ','',$area)).'>'.$area.'</a></td>
+			<td><a href=resume.php?id='.strtolower(str_replace(' ','',$area)).'>'.$area.'</a></td>
 			<td>'.$plan.'</td>
 			<td>'.$ohalldisb.'</td>
 			

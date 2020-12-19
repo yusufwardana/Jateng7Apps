@@ -1,10 +1,11 @@
 <?php
-$datapage = 'profile';
-$ur['title'] = 'Dashboard';
-$ur['active1'] = "";
-$ur['active2'] = "";
-$ur['active3'] = "active";
-include 'header.php';
+$fetch = $connect->prepare('SELECT username,nama,birthday,jabatan,mms,area FROM accounts WHERE id = ?');
+$fetch->bind_param('i', $_SESSION['id']);
+$fetch->execute();
+$fetch->bind_result($usernik,$nama, $birthday, $jabatan, $mms, $area);
+$fetch->fetch();
+$fetch->close();
+
 ?>
         <!-- page content start -->
         <div class="container-fluid px-0">
@@ -45,9 +46,9 @@ include 'header.php';
 	if(isset($_GET['id'])){
 		$page = $_GET['id'];
 		resumeProfile($page);
-	}else{
-resumeProfile($usernik);
-}
+		}else{
+		resumeProfile($usernik);
+    }
 
 ?>
             <!--<div class="container">
@@ -142,7 +143,3 @@ resumeProfile($usernik);
         </div>
     
 
-<?php
-
-include 'footer.php';
-?>

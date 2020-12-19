@@ -11,6 +11,7 @@ require("header.php");
 			  $ur['active1'] = "";
 			  $ur['active2'] = "";
 			  $ur['active3'] = "";
+			  $ur["datapage"] = "wallet";
         $gForm = 'https://docs.google.com/forms/d/e/1FAIpQLSfLZQtAkMDXPtKNpMRQrc3zrfZjrm0c6HP92Lu7kz1azu6Ikw/viewform';
 				pageheader($ur);
 				include "performance.php";
@@ -20,9 +21,29 @@ require("header.php");
 			  $ur['active1'] = "";
 			  $ur['active2'] = "active";
 			  $ur['active3'] = "";
-			  include 'header.php';
+			  $ur["datapage"] = "wallet";
+			  pageheader($ur);
 				include "ranking.php";
-				include'footer.php';
+			 break;
+			case 'rankco':
+			  $ur['title'] = "Rating CO";
+			  $ur['active1'] = "";
+			  $ur['active2'] = "active";
+			  $ur['active3'] = "";
+			  $ur["datapage"] = "wallet";
+			  pageheader($ur);
+				include "resumeco.php";			
+
+				break;
+			case 'profile':
+			  $ur['title'] = "Dashboard";
+			  $ur['active1'] = "";
+			  $ur['active2'] = "active";
+			  $ur['active3'] = "";
+			  $ur["datapage"] = "wallet";
+			  pageheader($ur);
+				include "profile.php";
+
 				break;
 			case 'calltree':
 			  $ur['title'] = "Report Call Tree";
@@ -63,6 +84,16 @@ require("header.php");
 			  pageheader($ur);
 				include "calc.php";
 		
+				break;
+		  case 'birthday':
+			  $ur['title'] = "Birthday";
+			  //$ur['active1'] = "";
+			  //$ur['active2'] = "";
+			  //$ur['active3'] = "";
+			  $ur["datapage"] = "wallet";
+			  pageheader($ur);
+				include "birthday.php";
+		
 				break;								
 			default:
 				echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
@@ -78,6 +109,7 @@ require("header.php");
 			  $ur['active1'] = "";
 			  $ur['active2'] = "";
 			  $ur['active3'] = "";
+			  $ur["datapage"] = "wallet";
         $gForm = 'https://docs.google.com/forms/d/e/1FAIpQLSfLZQtAkMDXPtKNpMRQrc3zrfZjrm0c6HP92Lu7kz1azu6Ikw/viewform';
 				pageheader($ur);
 				include "formdaily.php";
@@ -94,6 +126,7 @@ if(!isset($_GET['page']) AND !isset($_GET['inp'])){
 		$ur['active1'] = "active";
 		$ur['active2'] = "";
 		$ur['active3'] = "";
+    $ur["datapage"] = "homepage";
 		pageheader($ur);
 		include "main.php";
 

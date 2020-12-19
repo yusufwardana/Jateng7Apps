@@ -6,7 +6,6 @@ if(isset($_GET['id'])){
 }
 
 
-include 'header.php';
 
             
             
@@ -24,5 +23,5 @@ include 'header.php';
      }
 	   
 
-include 'footer.php';
+
 ?>

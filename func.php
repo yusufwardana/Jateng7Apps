@@ -2,7 +2,7 @@
 
 $ur = array();
 $ur["screenloader"] = TRUE;
-$ur["datapage"] = "homepage";
+
 
 
 $ur['blog_dir']=str_replace('\\','/',dirname($_SERVER['SCRIPT_NAME']));
@@ -640,7 +640,7 @@ foreach($jsondata as $key => $value){
 	      //$idx = uniID($value['id']['$t']);
 echo '<tr>
 			
-			<td><a href="resumeco.php?id='.$nik.'">'.$namaco.'</a></td>
+			<td><a href="?page=rankco&id='.$nik.'">'.$namaco.'</a></td>
 			<td>'.$disb.'</td>
 			
 		</tr>';
@@ -854,13 +854,13 @@ function footermenu($ur){
                 </a>
             </div>
             <div class="col-auto">
-                <a href="/resumeco.php" class="">
+                <a href="/?page=rankco" class="">
                     <i class="material-icons">elevator</i>
                     <p>Rating</p>
                 </a>
             </div>
             <div class="col-auto">
-                <a href="/profile.php" class="">
+                <a href="/?page=profile" class="">
                     <i class="material-icons">account_circle</i>
                     <p>Profile</p>
                 </a>

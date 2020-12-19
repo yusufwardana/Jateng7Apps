@@ -51,7 +51,7 @@ if(isset($_GET["inp"]) xor isset($_GET["page"])){
 		echo '<header class="header">
             <div class="row">
                 <div class="col-auto px-0">
-                    <button class="menu-btn btn btn-40 btn-link back-btn" type="button">
+                    <button class="btn btn-40 btn-link back-btn" type="button">
                         <span class="material-icons">keyboard_arrow_left</span>
                     </button>
                 </div>

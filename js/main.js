@@ -110,7 +110,7 @@ $(document).ready(function () {
 $(window).on('load', function () {
     setTimeout(function () {
         $('.loader-display').fadeOut('slow');
-    }, 200);
+    }, 500);
 
 
     /* Background */

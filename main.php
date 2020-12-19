@@ -1,5 +1,6 @@
 
         <div class="main-container">
+       	
             <!-- page content start -->
             <div class="container mb-2">
                 <!-- Swiper -->
@@ -119,7 +120,7 @@
                             </div>
                             <div class="col-auto align-self-center">
                                 <h6 class="mb-1">Siapa yang Ultah hari ini?</h6>
-                                <p class="small text-secondary"><a href="birthday.php">Cek disini..</php></p>
+                                <p class="small text-secondary"><a href="/?page=birthday">Cek disini..</php></p>
                             </div>
                         </div>
                     </div>
