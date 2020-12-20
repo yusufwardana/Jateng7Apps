@@ -7,7 +7,7 @@ require("header.php");
 
 		switch ($page) {
 			case 'perf':
-			  $ur['title'] = "Report Daily Perform";
+			  $ur['title'] = "Performance";
 			  $ur['active1'] = "";
 			  $ur['active2'] = "";
 			  $ur['active3'] = "";
@@ -44,6 +44,16 @@ require("header.php");
 			  pageheader($ur);
 				include "profile.php";
 
+				break;
+			case 'timeline':
+			  $ur['title'] = "Report Daily Perform";
+			  $ur['active1'] = "";
+			  $ur['active2'] = "";
+			  $ur['active3'] = "";
+			  $ur["datapage"] = "wallet";
+      
+				pageheader($ur);
+				include "timeline.php";
 				break;
 			case 'calltree':
 			  $ur['title'] = "Report Call Tree";

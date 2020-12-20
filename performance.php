@@ -1,6 +1,7 @@
 
-<div class="main-container"><div class="container">
-<div class="card">
+<div class="main-container">
+	<div class="container">
+		<div class="card">
                     <div class="card-header">
                         <h6 class="mb-0">App Menu</h6>
                     </div>
@@ -73,6 +74,6 @@
                             </a>
                         </div>
                     </div>
+    </div>
+  </div>
 </div>
-
-</div></div>

@@ -1,7 +1,7 @@
   </main>
     <!-- footer-->
 <?php
-echo footermenu($ur);
+//echo footermenu($ur);
 ?>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -10,12 +10,12 @@ echo footermenu($ur);
     <script src="vendor/swiper/js/swiper.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/google-forms-css.js?v=<?= time() ?>"></script>
+    <script src="js/google-forms-css.js"></script>
 <script>
 new googleFormsCSS({
   formURL: '<?php echo $gForm; ?>', // example form
   confirmationURL: 'thank_you.html', // optional
-  placeholderText: 'Your answer', // optional
+  placeholderText: '1000', // optional
 });
 </script>
 </body>

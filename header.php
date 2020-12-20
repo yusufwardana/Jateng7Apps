@@ -18,7 +18,9 @@ echo '<!doctype html>
 echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="'.$ur['blog_dir'].'vendor/swiper/css/swiper.min.css" rel="stylesheet">
-    <link href="'.$ur['blog_dir'].'css/j7apps.css" rel="stylesheet" id="style">';
+    <link href="'.$ur['blog_dir'].'css/j7apps.css?'.time().'" rel="stylesheet" id="style">
+    <link href="'.$ur['blog_dir'].'css/timeline.css?'.time().'" rel="stylesheet" id="style">
+    <link rel="stylesheet" href="https://e6t7a8v2.stackpathcdn.com/tutorial/css/fontawesome-all.min.css">';
 
 echo '</head>';
 if($ur["datapage"]){ 
@@ -32,14 +34,7 @@ if($ur["screenloader"])echo '<div class="container-fluid h-100 loader-display">
             <div class="align-self-center col">
                 <div class="logo-loading">
                     <div class="icon icon-100 mb-4 rounded-circle">
-                        <img src="img/TEPAT.gif" alt="" class="w-50">
-                    </div>
-                    <h6 class="text-default">Jateng7</h6>
-                    <div class="loader-ellipsis">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <img src="img/jateng7.gif" alt="" class="w-100">
                     </div>
                 </div>
             </div>
