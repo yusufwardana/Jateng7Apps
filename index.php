@@ -55,6 +55,16 @@ require("header.php");
 				pageheader($ur);
 				include "timeline.php";
 				break;
+			case 'thankyou':
+			  $ur['title'] = "";
+			  $ur['active1'] = "";
+			  $ur['active2'] = "";
+			  $ur['active3'] = "";
+			  $ur["datapage"] = "thankyou";
+      
+				pageheader($ur);
+				include "thank.php";
+				break;
 			case 'calltree':
 			  $ur['title'] = "Report Call Tree";
 			  $ur['active1'] = "";

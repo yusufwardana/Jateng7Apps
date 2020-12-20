@@ -1,7 +1,7 @@
   </main>
     <!-- footer-->
 <?php
-//echo footermenu($ur);
+echo footermenu($ur);
 ?>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -14,7 +14,7 @@
 <script>
 new googleFormsCSS({
   formURL: '<?php echo $gForm; ?>', // example form
-  confirmationURL: 'thank_you.html', // optional
+  confirmationURL: '/?page=thankyou', // optional
   placeholderText: '1000', // optional
 });
 </script>

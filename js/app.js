@@ -304,7 +304,7 @@ $(window).on('load', function () {
         case "thankyou":
             setTimeout(function () {
                 window.location.replace("index.php");
-            }, 3500)
+            }, 10000)
             break;
         case "giftcards":
             /* carousel */
