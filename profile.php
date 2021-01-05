@@ -1,8 +1,8 @@
 <?php
-$fetch = $connect->prepare('SELECT NIK,NAME,BIRTHDAY,JABATAN,MMS,AREA FROM optima WHERE ID = ?');
+$fetch = $connect->prepare('SELECT NIK,NAME,BIRTHDAY,JABATAN,MMS,AREA,CLUSTER FROM optima WHERE ID = ?');
 $fetch->bind_param('i', $_SESSION['id']);
 $fetch->execute();
-$fetch->bind_result($NIK,$NAME, $BIRTHDAY, $JABATAN, $MMS, $AREA);
+$fetch->bind_result($NIK,$NAME, $BIRTHDAY, $JABATAN, $MMS, $AREA, $CLUSTER);
 $fetch->fetch();
 $fetch->close();
 
@@ -31,11 +31,23 @@ $fetch->close();
                 </div>
             </div>
         </div>
+        
+        
 <?php
+$grade = $JABATAN;
+if($grade == "BUSINESS COACH"){
+	$group = 1;
+}elseif($grade == "SENIOR BUSINESS MANAGER 2"){
+	$group = 2;	
+}elseif($grade == "BUSINESS MANAGER 1.1" OR $grade == "BUSINESS MANAGER 1" OR $grade == "BUSINESS MANAGER"){
+	$group = 3;
+}else{
+	$group = 4;
+	}
         echo'<div class="container mb-4 text-center text-white">
             <h5 class="mb-1">'.$NAME.'</h5>
             <p>'.$MMS.'</p>
-            <p class="mb-1">'.$JABATAN.'</p>
+            <p class="mb-1">'.$group.'</p>
         </div>';
 
 ?>
@@ -49,19 +61,7 @@ $fetch->close();
 		resumeProfile($NIK);
     }
 
-$grade = $JABATAN;
 
-echo $grade;
-if($grade = "BUSINESS COACH"){
-	echo 'Kasta 1';
-}elseif($grade = "SENIOR BUSINESS MANAGER 2"){
-	echo 'Kasta 2';
-	
-}elseif($grade = "BUSINESS MANAGER 1.1" OR $grade = "BUSINESS MANAGER 1" OR $grade = "BUSINESS MANAGER"){
-	echo 'Kasta 3';
-}else{
-	echo 'Kasta 4';
-	}
 ?>
             <!--<div class="container">
                 <div class="card">
