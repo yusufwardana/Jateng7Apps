@@ -35,9 +35,8 @@ $fetch->close();
         echo'<div class="container mb-4 text-center text-white">
             <h5 class="mb-1">'.$NAME.'</h5>
             <p>'.$MMS.'</p>
-            <p class="mb-1">'.$AREA.'</p>
+            <p class="mb-1">'.$JABATAN.'</p>
         </div>';
-
 
 ?>
         <div class="main-container">
@@ -45,12 +44,14 @@ $fetch->close();
 <?php
 	if(isset($_GET['id'])){
 		$page = $_GET['id'];
-		resumeProfile($page);
+		//resumeProfile($page);
 		}else{
 		resumeProfile($NIK);
     }
-    
-echo $JABATAN;
+
+$grade = $JABATAN;
+
+echo $grade;
 
 ?>
             <!--<div class="container">
