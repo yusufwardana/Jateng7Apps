@@ -52,7 +52,16 @@ $fetch->close();
 $grade = $JABATAN;
 
 echo $grade;
-
+if($grade = "BUSINESS COACH"){
+	echo 'Kasta 1';
+}elseif($grade = "SENIOR BUSINESS MANAGER 2"){
+	echo 'Kasta 2';
+	
+}elseif($grade = "BUSINESS MANAGER 1.1" OR $grade = "BUSINESS MANAGER 1" OR $grade = "BUSINESS MANAGER"){
+	echo 'Kasta 3';
+}else{
+	echo 'Kasta 4';
+	}
 ?>
             <!--<div class="container">
                 <div class="card">
