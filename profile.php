@@ -1,8 +1,8 @@
 <?php
-$fetch = $connect->prepare('SELECT username,nama,birthday,jabatan,mms,area FROM accounts WHERE id = ?');
+$fetch = $connect->prepare('SELECT NIK,NAME,BIRTHDAY,JABATAN,MMS,AREA FROM optima WHERE ID = ?');
 $fetch->bind_param('i', $_SESSION['id']);
 $fetch->execute();
-$fetch->bind_result($usernik,$nama, $birthday, $jabatan, $mms, $area);
+$fetch->bind_result($NIK,$NAME, $BIRTHDAY, $JABATAN, $MMS, $AREA);
 $fetch->fetch();
 $fetch->close();
 
@@ -33,9 +33,9 @@ $fetch->close();
         </div>
 <?php
         echo'<div class="container mb-4 text-center text-white">
-            <h5 class="mb-1">'.$nama.'</h5>
-            <p>'.$mms.'</p>
-            <p class="mb-1">'.$area.'</p>
+            <h5 class="mb-1">'.$NAME.'</h5>
+            <p>'.$MMS.'</p>
+            <p class="mb-1">'.$AREA.'</p>
         </div>';
 
 
@@ -47,8 +47,10 @@ $fetch->close();
 		$page = $_GET['id'];
 		resumeProfile($page);
 		}else{
-		resumeProfile($usernik);
+		resumeProfile($NIK);
     }
+    
+echo $JABATAN;
 
 ?>
             <!--<div class="container">

@@ -20,7 +20,7 @@ echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="
     <link href="'.$ur['blog_dir'].'vendor/swiper/css/swiper.min.css" rel="stylesheet">
     <link href="'.$ur['blog_dir'].'css/j7apps.css?'.time().'" rel="stylesheet" id="style">
     <link href="'.$ur['blog_dir'].'css/timeline.css?'.time().'" rel="stylesheet" id="style">
-    <link rel="stylesheet" href="https://e6t7a8v2.stackpathcdn.com/tutorial/css/fontawesome-all.min.css">';
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
 
 echo '</head>';
 if($ur["datapage"]){ 
@@ -40,7 +40,7 @@ if($ur["screenloader"])echo '<div class="container-fluid h-100 loader-display">
             </div>
         </div>
     </div>';
-if(isset($_GET["inp"]) xor isset($_GET["page"])){
+if(isset($_GET["inp"]) || isset($_GET["page"]) || isset($_GET["bm"])){
 
 	echo '<main class="flex-shrink-0 main">';
 		echo '<header class="header">
@@ -81,10 +81,6 @@ if(isset($_GET["inp"]) xor isset($_GET["page"])){
 navbar($ur);
 	
 }
-    
-
-
-
 
 echo '<div class="backdrop"></div>';
 }

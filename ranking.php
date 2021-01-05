@@ -1,16 +1,8 @@
 <?php
-
-
-
 $url = "https://spreadsheets.google.com/feeds/list/11WuhyrUNisxM483HPrkkv8-vTN_Rsa2M36Da3B6bDFo/7/public/full?alt=json";
-//$url = "https://spreadsheets.google.com/feeds/list/1hAJCJKWtiukmhXsjImuqT0LEV6vzR-MQvWkErJYNyqA/2/public/full?alt=json";
 $data = file_get_contents($url);
-//$json = json_decode($data,true);
 $json = json_decode($data,true);
 $jsondata = $json['feed']['entry'];
-
-//echo erDebug($jsondata);
-
 echo '<div class="main-container">
 <div class="container"><div class="row">
 <div class="col"><div class="card mb-4">
@@ -18,8 +10,8 @@ echo '<div class="main-container">
 <table class="table">
 	<thead>
 		<tr>
-		
-			<td>AREA</td>
+	
+	    <td>AREA</td>
 			<td>PLAN</td>
 			<td>OH ALL</td>
 			
@@ -39,7 +31,7 @@ foreach($jsondata as $key => $value){
 	 
 echo '<tr>
 			
-			<td><a href=resume.php?id='.strtolower(str_replace(' ','',$area)).'>'.$area.'</a></td>
+			<td><a href=/?bm='.strtolower(str_replace(' ','',$area)).'>'.$area.'</a></td>
 			<td>'.$plan.'</td>
 			<td>'.$ohalldisb.'</td>
 			

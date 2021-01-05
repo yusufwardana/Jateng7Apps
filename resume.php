@@ -1,11 +1,10 @@
 <?php
 $ur['title'] = "SUMMARY OF &nbsp;".strtoupper($_GET['id']);
-include 'header2.php';
-
+$ur["datapage"] = "homepage";
+include 'header.php';
+pageheader($ur);
             
-            
-
-
+           
 	if(isset($_GET['id'])){
 		$page = $_GET['id'];
 		
@@ -106,5 +105,5 @@ include 'header2.php';
 	   }
 	   
 
-include 'footer2.php';
+include 'footer.php';
 ?>

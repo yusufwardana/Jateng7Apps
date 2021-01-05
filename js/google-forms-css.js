@@ -1,13 +1,11 @@
 
 var googleFormsCSS = function(params) {
-
-  // jquery
+	// jquery
   if (typeof jQuery === 'undefined') {
     console.error('google-forms-css > jquery not found');
     return;
   }
-
-  // form url
+ // form url
   var formURL = params.formURL;
   if (!formURL.match('^https:\/\/docs.google.com\/forms\/.*')) {
     console.error('google-forms-css > invalid form url');
@@ -15,18 +13,11 @@ var googleFormsCSS = function(params) {
   }
   formURL = formURL.replace('viewform', 'formResponse');
 
-
-
-
-
-
   // request
   jQuery.get('gform.php?url=' + formURL, function(data) {
-
     //
     // parse
     //
-
     // form data
     var needle = 'var FB_PUBLIC_LOAD_DATA_ = ';
     var start = data.indexOf(needle);
@@ -41,10 +32,8 @@ var googleFormsCSS = function(params) {
     // items
     var items = formData[1][1];
     items.forEach(function(item, index) {
-
       var title = item[1];
       var description = item[2];
-
       // type
       var type;
       switch(item[3]) {
@@ -52,7 +41,7 @@ var googleFormsCSS = function(params) {
           if (item[4][0][4] && item[4][0][4][0][0] === 2 && item[4][0][4][0][1] === 102) { // google forms: response validation > text > email address
             type = 'email';
           } else {
-            type = 'text';
+            type = 'number';
           }
           break;
         }
@@ -103,16 +92,12 @@ var googleFormsCSS = function(params) {
         });
       }
 
-      //console.log('google-forms-css > title:', title);
-      // console.log('google-forms-css > description:', description);
-      // console.log('google-forms-css > type:', type);
-      // console.log('google-forms-css > name:', name);
-      // console.log('google-forms-css > required:', required);
-      // console.log('google-forms-css > options:', options);
-
-
-
-
+//console.log('google-forms-css > title:', title);
+//console.log('google-forms-css > description:', description);
+console.log('google-forms-css > type:', type);
+//console.log('google-forms-css > name:', name);
+//console.log('google-forms-css > required:', required);
+//console.log('google-forms-css > options:', options);
 
       //
       // build
@@ -144,9 +129,13 @@ var googleFormsCSS = function(params) {
         return;
 
       }
-
-     
-      var group = jQuery('<div class="form-group"></div>');      
+      
+      
+      
+      
+      var group = jQuery('<div class="form-group"></div>'); 
+      
+          
       // label
       if (title || description) {
 
@@ -175,7 +164,8 @@ var googleFormsCSS = function(params) {
         group.append(labelEl);
 
       }
-
+      
+  
       // checkbox / radio
       if (type === 'checkbox' || type === 'radio') {
 
@@ -278,54 +268,54 @@ var googleFormsCSS = function(params) {
         group.append(select);
 
       }
-
+      else{
+  
       // email / text / textarea
-      else {
-
+      
+     var ww = jQuery('<div class="input-group"></div>'); 
         if (type === 'textarea') {
           var input = jQuery('<textarea class="form-control" rows="3"></textarea>');
-        } else {
-        	
+        } else if (type === 'date') {
+        	var input = jQuery('<input class="form-control">');
+          input.attr('type', type); }
+         else      {
+        
+          
+        	var div = jQuery('<div class="input-group-prepend"><span class="input-group-text">#</span></div>');
+        	var div2 = jQuery('<div class="input-group-append"><span class="input-group-text">.000</span></div>');
           var input = jQuery('<input class="form-control">');
+          
           input.attr('type', type);
+         
+
         }
 
         input.attr('id', 'google-forms-css-' + name);
         input.attr('name', 'entry.' + name);
         input.attr('placeholder', params.placeholderText);
         input.attr('required', required);
-
-        group.append(input);
-
+        
+        
+        ww.append(div);
+        ww.append(input);
+        ww.append(div2);
+        
+        
+       
       }
-
+      
       jQuery('#google-forms-css-form').append(group);
+      jQuery('#google-forms-css-form').append(ww);
+   
 
     });
     
+    
+    //jQuery('<span class="input-group-text">Rp</span>').insertAfter('label');
     jQuery('#google-forms-css-form').append('<div class="form-group"><button class="btn btn-primary" data-popup=".popup-media" type="submit">Submit</button></group>');
     jQuery('#google-forms-css-loading').hide();
     jQuery('#google-forms-css-main').show();
-    jQuery('#google-forms-css-form').validate({
-        rules: {
-            firstname: {
-                minlength: 3,
-                maxlength: 15,
-                required: true
-            },
-            lastname: {
-                minlength: 3,
-                maxlength: 15,
-                required: true
-            }
-        },
-        highlight: function(element) {
-            $(element).closest('.form-group').addClass('has-error');
-        },
-        unhighlight: function(element) {
-            $(element).closest('.form-group').removeClass('has-error');
-        }
-    });
+
 
   });
 
