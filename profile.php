@@ -35,32 +35,27 @@ $fetch->close();
         
 <?php
 $grade = $JABATAN;
-if($grade == "BUSINESS COACH"){
-	$group = 1;
-}elseif($grade == "SENIOR BUSINESS MANAGER 2"){
-	$group = 2;	
-}elseif($grade == "BUSINESS MANAGER 1.1" OR $grade == "BUSINESS MANAGER 1" OR $grade == "BUSINESS MANAGER"){
-	$group = 3;
-}else{
-	$group = 4;
-	}
+
         echo'<div class="container mb-4 text-center text-white">
             <h5 class="mb-1">'.$NAME.'</h5>
             <p>'.$MMS.'</p>
-            <p class="mb-1">'.$group.'</p>
+            <p class="mb-1">'.$grade.'</p>
         </div>';
 
 ?>
         <div class="main-container">
 
 <?php
-	if(isset($_GET['id'])){
-		$page = $_GET['id'];
-		//resumeProfile($page);
-		}else{
-		resumeProfile($NIK);
-    }
-
+if($grade == "BUSINESS COACH"){
+	$group = "JATENG 7";
+	echo jsonArea($group,3);
+}elseif($grade == "SENIOR BUSINESS MANAGER 2"){
+	echo jsonArea(trim($AREA),3);
+}elseif($grade == "BUSINESS MANAGER 1.1" OR $grade == "BUSINESS MANAGER 1" OR $grade == "BUSINESS MANAGER"){
+	echo jsonArea(trim($AREA),2);
+}else{
+	echo jsonArea(trim($NAME),1);
+	}
 
 ?>
             <!--<div class="container">

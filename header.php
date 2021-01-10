@@ -13,7 +13,9 @@ echo '<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Jateng7Apss">
     <meta name="author" content="YusufWardana">
-    <meta name="generator" content="">';
+    <meta name="generator" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">';
     if($ur["title"]) echo '<title>'.$ur["title"].'</title>';
 echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">

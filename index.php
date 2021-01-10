@@ -6,7 +6,7 @@ if(isset($_GET['page'])){
 	switch ($page) {
 		case 'perf':
 		$ur['title'] = "Performance";
-		$ur["datapage"] = "homepage";
+		$ur["datapage"] = "giftcards";
 		pageheader($ur);
 		require "performance.php";
 		break;
@@ -24,7 +24,7 @@ if(isset($_GET['page'])){
 		break;
 		case 'profile':
 		$ur['title'] = "Dashboard";
-		$ur["datapage"] = "wallet";
+		$ur["datapage"] = "analytics";
 		pageheader($ur);
 		include "profile.php";
 		break;
@@ -65,6 +65,16 @@ if(isset($_GET['page'])){
 		$ur['active3'] = "";
 		$ur["datapage"] = "wallet";
 		$gForm = 'https://docs.google.com/forms/d/e/1FAIpQLSfLZQtAkMDXPtKNpMRQrc3zrfZjrm0c6HP92Lu7kz1azu6Ikw/viewform';
+		pageheader($ur);
+		include "formdaily.php";
+		break;
+		case 'datakaryawan':
+		$ur['title'] = "Update Karyawan";
+		$ur['active1'] = "";
+		$ur['active2'] = "";
+		$ur['active3'] = "";
+		$ur["datapage"] = "wallet";
+		$gForm = 'https://docs.google.com/forms/d/e/1FAIpQLSd0QmMlbUpHz7pjQr15ifQzUONhW8FHEz41wRr2DlrAeSp_WA/viewform';
 		pageheader($ur);
 		include "formdaily.php";
 		break;

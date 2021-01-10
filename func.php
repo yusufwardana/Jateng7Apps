@@ -94,7 +94,7 @@ echo '
 
 }
 function resumeProfile($nik){
-$url = "https://spreadsheets.google.com/feeds/list/1PGEl82nfwTA0iUoV5OGZBCQ-SF0vb80MvhoZ7Tg0FDk/4/public/full?alt=json";
+$url = "https://spreadsheets.google.com/feeds/list/1Md5Q7S0pTMF0Ftb9U-Wor_ywQdL5HsuB2fryXUPwZ-8/1/public/full?alt=json";
 $data = file_get_contents($url);
 $json = json_decode($data,true);
 $jsondata = $json['feed']['entry'];
@@ -337,8 +337,10 @@ echo'
     }  
 
 }
+
+//Ambil Detail dari Ranking CO
 function resumeviewProfile($nik){
-$url = "https://spreadsheets.google.com/feeds/list/1PGEl82nfwTA0iUoV5OGZBCQ-SF0vb80MvhoZ7Tg0FDk/4/public/full?alt=json";
+$url = "https://spreadsheets.google.com/feeds/list/1Md5Q7S0pTMF0Ftb9U-Wor_ywQdL5HsuB2fryXUPwZ-8/1/public/full?alt=json";
 $data = file_get_contents($url);
 $json = json_decode($data,true);
 $jsondata = $json['feed']['entry'];
@@ -614,40 +616,56 @@ echo'
     }  
 
 }
+
+//Ambil Ranking CO
 function resumeData(){
-$url = "https://spreadsheets.google.com/feeds/list/1PGEl82nfwTA0iUoV5OGZBCQ-SF0vb80MvhoZ7Tg0FDk/4/public/full?alt=json";
+$url = "https://spreadsheets.google.com/feeds/list/1Md5Q7S0pTMF0Ftb9U-Wor_ywQdL5HsuB2fryXUPwZ-8/1/public/full?alt=json";
 $data = file_get_contents($url);
 $json = json_decode($data,true);
 $jsondata = $json['feed']['entry'];
 //echo erDebug($jsondata);
-echo '<div class="row"><div class="col"><div class="card mb-4">
-<div class="table-responsive">
-<table class="table">
-	<thead>
-		<tr>
-			
-			<td>NAMA</td>
-			<td>OH DISB</td>
-			
-		</tr>
-	</thead>';
-foreach($jsondata as $key => $value){
-	      //echo erDebug($value);
-	      //$mms = $value['gsx$mms']['$t'];  
+echo '<div class="main-container">
+<div class="container mb-4">
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h6 class="mb-0">Rating Produktivitas</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0">
+                        <ul class="list-group list-group-flush">';
+        foreach($jsondata as $key => $value){
 	      $namaco = $value['gsx$co']['$t'];
 	      $disb = $value['gsx$disbtotaloh']['$t'];
 	      $nik = $value['gsx$nik']['$t'];
-	      //$idx = uniID($value['id']['$t']);
-echo '<tr>
-			
-			<td><a href="?page=rankco&id='.$nik.'">'.$namaco.'</a></td>
-			<td>'.$disb.'</td>
-			
-		</tr>';
-        
-    }  
-echo '</table></div></div></div></div>';
+	      $mms = $value['gsx$mms']['$t'];                        
+                   
+                      echo '<li class="list-group-item">
+                                <div class="row align-items-center">
+                                    <div class="col-auto pr-0">
+                                        <div class="avatar avatar-40 rounded">
+                                            <div class="background" style="background-image: url(&quot;img/user2.png&quot;);">
+                                                <img src="img/user2.png" alt="" style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col align-self-center pr-0">
+                                        <h6 class="font-weight-normal mb-1">'.$namaco.'</h6>
+                                        <p class="small text-secondary">'.$mms.', <a href="?page=rankco&id='.$nik.'">Detail</a></p>
+                                    </div>
+                                    <div class="col-auto">
+                                        <h6 class="text-success">'.$disb.'</h6>
+                                    </div>
+                                </div>
+                            </li>';
+        }
+                       echo'                                
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+</div>';
 }
+
 function uniID($url){
 	$urlData = parse_url($url); 
 	$parameters = array();
@@ -869,6 +887,452 @@ function footermenu($ur){
     </div>';
 	
 	
+}
+
+function bagi($disb,$noa){
+	$rata=($disb!=0)?($disb/$noa):0;
+	$rata=number_format($rata,0);
+	return $rata;	
+}
+function insentif($jn,$sl,$wbc,$tu,$grade){
+	
+	
+	
+}
+function jsonArea($param,$sheet){
+$url = "https://spreadsheets.google.com/feeds/list/1Md5Q7S0pTMF0Ftb9U-Wor_ywQdL5HsuB2fryXUPwZ-8/".$sheet."/public/full?alt=json";
+$data = file_get_contents($url);
+$json = json_decode($data,true);
+$jsondata = $json['feed']['entry'];
+
+$search = $param;
+$jsondata2 = array_filter($jsondata, function ($var) use ($search) {
+	if($sheet = 1){
+		 if (stripos($var['gsx$co']['$t'], $search) !== false) {
+        return true;
+    }		
+	}else{
+    if (stripos($var['gsx$area']['$t'], $search) !== false) {
+        return true;
+    }
+  }
+    return false;
+});
+
+foreach($jsondata2 as $key => $value){
+$updated = date('d/m/Y h:i A', strtotime($value['updated']['$t']));
+$area=$value['gsx$area']['$t'];
+$cluster=$value['gsx$cluster']['$t'];
+$disbblminput=(int)$value['gsx$disbblminput']['$t'];
+$disbdisbmtd=(int)$value['gsx$disbdisbmtd']['$t'];
+$disbdisbtoday=(int)$value['gsx$disbdisbtoday']['$t'];
+$disbgrowth=(int)$value['gsx$disbgrowth']['$t'];
+$disbohall=(int)$value['gsx$disbohall']['$t'];
+$disbpipeline=(int)$value['gsx$disbpipeline']['$t'];
+$disbtotalini=(int)$value['gsx$disbtotalini']['$t'];
+$disbtotaloh=(int)$value['gsx$disbtotaloh']['$t'];
+$gap=(int)$value['gsx$gap']['$t'];
+$inidisbjn=(int)$value['gsx$inidisbjn']['$t'];
+$inidisbsl=(int)$value['gsx$inidisbsl']['$t'];
+$inidisbtu=(int)$value['gsx$inidisbtu']['$t'];
+$inidisbwbc=(int)$value['gsx$inidisbwbc']['$t'];
+$ininoajn=(int)$value['gsx$ininoajn']['$t'];
+$ininoasl=(int)$value['gsx$ininoasl']['$t'];
+$ininoatu=(int)$value['gsx$ininoatu']['$t'];
+$ininoawbc=(int)$value['gsx$ininoawbc']['$t'];
+$noablminput=(int)$value['gsx$noablminput']['$t'];
+$noadisbmtd=(int)$value['gsx$noadisbmtd']['$t'];
+$noadisbtoday=(int)$value['gsx$noadisbtoday']['$t'];
+$noagrowth=(int)$value['gsx$noagrowth']['$t'];
+$noaohall=(int)$value['gsx$noaohall']['$t'];
+$noapipeline=(int)$value['gsx$noapipeline']['$t'];
+$noatotalini=(int)$value['gsx$noatotalini']['$t'];
+$noatotaloh=(int)$value['gsx$noatotaloh']['$t'];
+$ohdisbjn=(int)$value['gsx$ohdisbjn']['$t'];
+$ohdisbsl=(int)$value['gsx$ohdisbsl']['$t'];
+$ohdisbtu=(int)$value['gsx$ohdisbtu']['$t'];
+$ohdisbwbc=(int)$value['gsx$ohdisbwbc']['$t'];
+$ohnoajn= (int)$value['gsx$ohnoajn']['$t'];
+$ohnoasl=(int)$value['gsx$ohnoasl']['$t'];
+$ohnoatu=(int)$value['gsx$ohnoatu']['$t'];
+$ohnoawbc=(int)$value['gsx$ohnoawbc']['$t'];
+$target=(int)$value['gsx$target']['$t'];
+$rank=(int)$value['gsx$rank']['$t'];
+$acvoh=$value['gsx$acvoh']['$t'];
+$acvohini=$value['gsx$acvohini']['$t'];
+$gapall=$value['gsx$gapall']['$t'];
+
+
+?>
+
+<!-- Swiper -->
+<div class="container mb-4">
+    <div class="row mb-3">
+        <div class="col">
+            <h6 class="subtitle mb-0">Perform Report </h6>
+        </div>
+    </div>
+    <div class="swiper-container swiper-users ">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-auto">
+                               <div class="avatar avatar-60 bg-default-secondary rounded-circle">
+                                 <i class="material-icons">cloud_upload</i>
+                               </div>
+                            </div>
+                            <div class="col pl-0">
+                                <p class="text-secondary mb-0"><small>Disburse Today</small></p>
+                                <p class="mb-1"><?php echo number_format($disbdisbtoday,0); ?><small class="text-success"><span class="material-icons small">flash_on</span></small></p>
+                                <p class="text-secondary small"><?php echo $noadisbtoday.' 	NOA'; ?></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-auto">
+                               <div class="avatar avatar-60 bg-default-secondary rounded-circle">
+                                 <i class="material-icons">cloud_done</i>
+                               </div>
+                            </div>
+                            <div class="col pl-0">
+                                <p class="text-secondary mb-0"><small>Disburse MTD</small></p>
+                                <p class="mb-1"><?php echo number_format($disbdisbmtd,0); ?><small class="text-success"><span class="material-icons small">flash_on</span></small></p>
+                                <p class="text-secondary small"><?php echo $noadisbmtd.' 	NOA'; ?></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-auto">
+                               <div class="avatar avatar-60 bg-default-secondary rounded-circle">
+                                 <i class="material-icons">cloud_queue</i>
+                               </div>
+                            </div>
+                            <div class="col pl-0">
+                                <p class="text-secondary mb-0"><small>Belum Cair</small></p>
+                                <p class="mb-1"><?php echo number_format($disbpipeline,0); ?><small class="text-success"><span class="material-icons small">flash_on</span></small></p>
+                                <p class="text-secondary small"><?php echo $noapipeline.' 	NOA'; ?></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-auto">
+                               <div class="avatar avatar-60 bg-default-secondary rounded-circle">
+                                 <i class="material-icons">create_new_folder</i>
+                               </div>
+                            </div>
+                            <div class="col pl-0">
+                                <p class="text-secondary mb-0"><small>Growth Today</small></p>
+                                <p class="mb-1"><?php echo number_format($disbgrowth,0); ?><small class="text-success"><span class="material-icons small">flash_on</span></small></p>
+                                <p class="text-secondary small"><?php echo $noagrowth.' 	NOA'; ?></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Progress -->
+<div class="container mb-3">
+    <div class="row mb-3">
+        <div class="col">
+            <h6 class="subtitle mb-0">Progress </h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col">
+                            <h4 class="mb-1"><?php echo 'OH = '.number_format($disbtotaloh,0); ?> </h4>
+                            <p class="text-secondary small"><?php echo number_format($gap,0).' to achieve plan .'.number_format($target,0); ?></p>
+
+                        </div>
+                        <div class="col-auto pl-0">
+                            <button class="btn btn-40 bg-default-light text-default rounded-circle">
+                                <i class="material-icons">local_atm</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="progress mb-2">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width:<?php echo trim($acvoh); ?>" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo $acvoh; ?></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col">
+                            <h4 class="mb-1"><?php echo 'ALL = '.number_format($disbohall,0); ?> </h4>
+                            <p class="text-secondary small"><?php echo number_format($gapall,0).' to achieve plan .'.number_format($target,0); ?></p>
+
+                        </div>
+                        <div class="col-auto pl-0">
+                            <button class="btn btn-40 bg-default-light text-default rounded-circle">
+                                <i class="material-icons">local_atm</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="progress mb-2">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width:<?php echo trim($acvohini); ?>" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo $acvohini; ?></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Pipeline -->
+<div class="container">
+    <div class="row mb-3">
+        <div class="col">
+            <h6 class="subtitle mb-0">Act + Pipeline </h6>
+        </div>
+    </div>
+   <div class="card mb-3">
+            <div class="card-header border-bottom">
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="avatar avatar-50 bg-default-light text-default rounded">
+                            <span class="material-icons">local_mall</span>
+                        </div>
+                    </div>
+                    <div class="col align-self-center pl-0">
+                        <h4 class="mb-1">ONHAND</h4>
+                        <p class="text-secondary small">Updated @ <?php echo $updated; ?> </p>
+                    </div>
+                    <div class="col-auto pr-1">
+                        <button type="button" class="badge badge-warning font-weight-bold vm" data-toggle="modal" data-target="#exampleModalCenter">Track</button>
+                        <i class="material-icons vm">keyboard_arrow_right</i>
+                    </div>                           
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-50 border-0 bg-default-light rounded-circle text-default">
+                            <i class="material-icons vm text-template">queue</i>
+                        </div>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <h6 class="mb-1">NEW JN</h6>
+                        <p class="small text-secondary"><?php echo $ohnoajn; ?> NOA</p>
+                    </div>
+                    <div class="col-auto align-self-center border-left">
+                        <h6 class="mb-1"><?php echo number_format($ohdisbjn,0); ?></h6>
+                        <p class="small text-secondary">Ticket Size : <?php echo bagi($ohdisbjn,$ohnoajn); ?></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row align-items-center">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-50 border-0 bg-default-light rounded-circle text-default">
+                            <i class="material-icons vm text-template">library_add_check</i>
+                        </div>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <h6 class="mb-1">SIKLUS</h6>
+                        <p class="small text-secondary"><?php echo $ohnoasl; ?> NOA</p>
+                    </div>
+                    <div class="col-auto align-self-center border-left">
+                        <h6 class="mb-1"><?php echo number_format($ohdisbsl,0); ?></h6>
+                        <p class="small text-secondary">Ticket Size : <?php echo bagi($ohdisbsl,$ohnoasl); ?></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row align-items-center">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-50 border-0 bg-default-light rounded-circle text-default">
+                            <i class="material-icons vm text-template">library_books</i>
+                        </div>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <h6 class="mb-1">WBC</h6>
+                        <p class="small text-secondary"><?php echo $ohnoawbc; ?> NOA</p>
+                    </div>
+                    <div class="col-auto align-self-center border-left">
+                        <h6 class="mb-1"><?php echo number_format($ohdisbwbc,0); ?></h6>
+                        <p class="small text-secondary">Ticket Size : <?php echo bagi($ohdisbwbc,$ohnoawbc,); ?></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row align-items-center">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-50 border-0 bg-default-light rounded-circle text-default">
+                            <i class="material-icons vm text-template">collections_bookmark</i>
+                        </div>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <h6 class="mb-1">TOP UP</h6>
+                        <p class="small text-secondary"><?php echo $ohnoatu; ?> NOA</p>
+                    </div>
+                    <div class="col-auto align-self-center border-left">
+                        <h6 class="mb-1"><?php echo number_format($ohdisbtu,0); ?></h6>
+                        <p class="small text-secondary">Ticket Size : <?php echo bagi($ohdisbtu,$ohnoatu); ?></p>
+                    </div>
+                </div>                          
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="mb-1"><?php echo 'Σ OH = '.number_format($disbtotaloh,0); ?></h6>
+                        <p class="small text-secondary"><?php echo $noatotaloh.' NOA'; ?></p>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-default btn-40 rounded-circle"><i class="material-icons">repeat</i></button>
+                        <button class="btn btn-warning btn-40 rounded-circle ml-2 text-white"><i class="material-icons">star</i></button>
+                    </div>
+                </div>
+            </div>
+   </div>
+</div>       
+<div class="container">
+   <div class="card mb-3">
+            <div class="card-header border-bottom">
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="avatar avatar-50 bg-default-light text-default rounded">
+                            <span class="material-icons">local_offer</span>
+                        </div>
+                    </div>
+                    <div class="col align-self-center pl-0">
+                        <h4 class="mb-1">INISIATIF</h4>
+                        <p class="text-secondary small">Updated @ <?php echo $updated; ?> </p>
+                    </div>
+                    <div class="col-auto pr-1">
+                        <div class="badge badge-secondary font-weight-normal vm">Track</div>
+                        <i class="material-icons vm">keyboard_arrow_right</i>
+                    </div>                           
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-50 border-0 bg-default-light rounded-circle text-default">
+                            <i class="material-icons vm text-template">queue</i>
+                        </div>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <h6 class="mb-1">NEW JN</h6>
+                        <p class="small text-secondary"><?php echo $ininoajn; ?> NOA</p>
+                    </div>
+                    <div class="col-auto align-self-center border-left">
+                        <h6 class="mb-1"><?php echo number_format($inidisbjn,0); ?></h6>
+                        <p class="small text-secondary">Ticket Size : <?php echo bagi($inidisbjn,$ininoajn); ?></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row align-items-center">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-50 border-0 bg-default-light rounded-circle text-default">
+                            <i class="material-icons vm text-template">library_add_check</i>
+                        </div>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <h6 class="mb-1">SIKLUS</h6>
+                        <p class="small text-secondary"><?php echo $ininoasl; ?> NOA</p>
+                    </div>
+                    <div class="col-auto align-self-center border-left">
+                        <h6 class="mb-1"><?php echo number_format($inidisbsl,0); ?></h6>
+                        <p class="small text-secondary">Ticket Size : <?php echo bagi($inidisbsl,$ininoasl); ?></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row align-items-center">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-50 border-0 bg-default-light rounded-circle text-default">
+                            <i class="material-icons vm text-template">library_books</i>
+                        </div>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <h6 class="mb-1">WBC</h6>
+                        <p class="small text-secondary"><?php echo $ininoawbc; ?> NOA</p>
+                    </div>
+                    <div class="col-auto align-self-center border-left">
+                        <h6 class="mb-1"><?php echo number_format($ohdisbwbc,0); ?></h6>
+                        <p class="small text-secondary">Ticket Size : <?php echo bagi($inidisbwbc,$ininoawbc); ?></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row align-items-center">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-50 border-0 bg-default-light rounded-circle text-default">
+                            <i class="material-icons vm text-template">collections_bookmark</i>
+                        </div>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <h6 class="mb-1">TOP UP</h6>
+                        <p class="small text-secondary"><?php echo $ininoatu; ?> NOA</p>
+                    </div>
+                    <div class="col-auto align-self-center border-left">
+                        <h6 class="mb-1"><?php echo number_format($inidisbtu,0); ?></h6>
+                        <p class="small text-secondary">Ticket Size : <?php echo bagi($inidisbtu,$ininoatu); ?></p>
+                    </div>
+                </div>                          
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="mb-1"><?php echo 'Σ INISIATIF = '.number_format($disbtotalini,0); ?></h6>
+                        <p class="small text-secondary"><?php echo $noatotalini.' NOA'; ?></p>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-default btn-40 rounded-circle"><i class="material-icons">repeat</i></button>
+                        <button class="btn btn-warning btn-40 rounded-circle ml-2 text-white"><i class="material-icons">star</i></button>
+                    </div>
+                </div>
+            </div>
+   </div>
+</div> 
+    <!-- Modals  -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Insentif dibayarkan 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>          
+<?php
+
+}  
+
+//echo erDebug($jsondata);
+
 }
 
 ?>

@@ -27,7 +27,7 @@
     <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/j7apps.css" rel="stylesheet" id="style">
+    <link href="css/j7appsback.css" rel="stylesheet" id="style">
 </head>
 
 <body class="body-scroll d-flex flex-column h-100 menu-overlay" data-page="landing">

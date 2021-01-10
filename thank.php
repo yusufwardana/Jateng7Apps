@@ -1,11 +1,11 @@
 <?php
-$fetch = $connect->prepare('SELECT username,nama,birthday,jabatan,mms,area FROM accounts WHERE id = ?');
+
+$fetch = $connect->prepare('SELECT NIK,NAME,BIRTHDAY,JABATAN,MMS,AREA,CLUSTER FROM optima WHERE ID = ?');
 $fetch->bind_param('i', $_SESSION['id']);
 $fetch->execute();
-$fetch->bind_result($usernik,$nama, $birthday, $jabatan, $mms, $area);
+$fetch->bind_result($NIK,$NAME, $BIRTHDAY, $JABATAN, $MMS, $AREA, $CLUSTER);
 $fetch->fetch();
 $fetch->close();
-
 ?>
        
         <div class="main-container h-100">
@@ -16,7 +16,7 @@ $fetch->close();
                             <i class="material-icons display-4">redeem</i>
                         </div>
                         <h2>Congratulation!</h2>
-                        <h6 class="text-secondary mb-3">Thanks <?php echo $nama;?> </h6>
+                        <h6 class="text-secondary mb-3">Thanks <?php echo $NAME;?> </h6>
                         <p class="text-secondary">Thank you for submit, Your response has been recorded .</p>
                     </div>
                 </div>

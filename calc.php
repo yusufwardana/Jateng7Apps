@@ -2,6 +2,7 @@
 
 include 'header.php';
 $ur['title'] = "RR Adjusted Calc";
+$ur["datapage"] = "wallet";
 pageheader($ur);
 ?>
 

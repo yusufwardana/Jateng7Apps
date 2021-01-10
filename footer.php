@@ -8,6 +8,7 @@ echo footermenu($ur);
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/jquery.cookie.js"></script>
     <script src="vendor/swiper/js/swiper.min.js"></script>
+    
     <script src="js/main.js"></script>
     <script src="js/app.js"></script>
     <script src="js/google-forms-css.js"></script>

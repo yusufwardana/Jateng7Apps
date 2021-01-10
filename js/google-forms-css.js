@@ -282,7 +282,7 @@ console.log('google-forms-css > type:', type);
         
           
         	var div = jQuery('<div class="input-group-prepend"><span class="input-group-text">#</span></div>');
-        	var div2 = jQuery('<div class="input-group-append"><span class="input-group-text">.000</span></div>');
+        	var div2 = jQuery('<div class="input-group-append"><span class="input-group-text">orang</span></div>');
           var input = jQuery('<input class="form-control">');
           
           input.attr('type', type);
