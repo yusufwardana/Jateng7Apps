@@ -1,9 +1,11 @@
 <?php
+date_default_timezone_set("Asia/Bangkok");
+
 require("config.php");
 require("auth.php");
 require("func.php");
-$csrftoken = '<meta name="csrf-token" content="'.$_SESSION['csrf_token'].'">';
-$cssextra = '<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">';
+//$csrftoken = '<meta name="csrf-token" content="'.$_SESSION['csrf_token'].'">';
+//$cssextra = '<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">';
 
 function pageheader($ur){
 echo '<!doctype html>
@@ -21,17 +23,18 @@ echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="'.$ur['blog_dir'].'vendor/swiper/css/swiper.min.css" rel="stylesheet">
     <link href="'.$ur['blog_dir'].'css/j7apps.css?'.time().'" rel="stylesheet" id="style">
-    <link href="'.$ur['blog_dir'].'css/timeline.css?'.time().'" rel="stylesheet" id="style">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
+    <link href="'.$ur['blog_dir'].'css/timeline.css?'.time().'" rel="stylesheet" id="style">';
+
 
 echo '</head>';
 if($ur["datapage"]){ 
-	echo '
-	<body class="body-scroll d-flex flex-column h-100 menu-overlay" data-page="'.$ur["datapage"].'">';
+    echo '<body class="body-scroll d-flex flex-column h-100 menu-overlay" data-page="'.$ur["datapage"].'">';
 	}else{
 	echo '<body class="body-scroll d-flex flex-column h-100 menu-overlay">';
 	}
-if($ur["screenloader"])echo '<div class="container-fluid h-100 loader-display">
+
+if($ur["screenloader"]===1){
+    echo '<div class="container-fluid h-100 loader-display">
         <div class="row h-100">
             <div class="align-self-center col">
                 <div class="logo-loading">
@@ -41,51 +44,47 @@ if($ur["screenloader"])echo '<div class="container-fluid h-100 loader-display">
                 </div>
             </div>
         </div>
-    </div>';
+      </div>';
+    }else{
+
+
+    }
+ 
 if(isset($_GET["inp"]) || isset($_GET["page"]) || isset($_GET["bm"])){
 
 	echo '<main class="flex-shrink-0 main">';
-		echo '<header class="header">
-            <div class="row">
-                <div class="col-auto px-0">
-                    <button class="btn btn-40 btn-link back-btn" type="button">
-                        <span class="material-icons">keyboard_arrow_left</span>
-                    </button>
-                </div>
-                <div class="text-left col align-self-center">
-                    <a class="navbar-brand" href="#">';
-        if($ur["title"]) echo '<h5 class="mb-0">'.$ur["title"].'</h5>';
-        echo '</a>
-        </div>
-        </div>
-     </header>';
+
 
 	
 	//$ur["footer"] = "";
 }else{
 
 	echo '
-    <main class="flex-shrink-0 main">';
-    	echo '<header class="header">
-        <div class="row">
-        <div class="col-auto px-0">
-        <button class="menu-btn btn btn-40 btn-link" type="button">
-        <span class="material-icons">menu</span>
-        </button>
-        </div>
-        <div class="text-left col align-self-center">
-        <a class="navbar-brand" href="#">';
-        if($ur["title"]) echo '<h5 class="mb-0">'.$ur["title"].'</h5>';
-        echo '</a>
-        </div>
-        </div>
-     </header>';
-navbar($ur);
+    <main class="flex-shrink-0 main has-footer">';
+
+//navbar($ur);
 	
 }
 
 echo '<div class="backdrop"></div>';
 }
 
+function headbirthday(){
+echo '<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Happy Birthday!!! :)</title>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+  <link rel="stylesheet" href="css/birth.css?'.time().'">
+</head>
+
+<body>';	
+	
+	
+}
 //echo erDebug($ur);

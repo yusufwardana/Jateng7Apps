@@ -28,7 +28,7 @@ if ($stmt = $connect->prepare('SELECT ID, PASSWORD FROM optima WHERE NIK = ?')) 
 		$_SESSION['name'] = $_POST['username'];
 		$_SESSION['id'] = $ID;
 		//echo 'Welcome ' . $_SESSION['name'] . '!';
-		header('Location: index.php');
+		header('Location: /');
 	} else {
 		// Incorrect password
 		header('Location: login.php?act=1');

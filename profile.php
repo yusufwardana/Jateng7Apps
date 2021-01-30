@@ -54,9 +54,8 @@ if($grade == "BUSINESS COACH"){
 }elseif($grade == "BUSINESS MANAGER 1.1" OR $grade == "BUSINESS MANAGER 1" OR $grade == "BUSINESS MANAGER"){
 	echo jsonArea(trim($AREA),2);
 }else{
-	echo jsonArea(trim($NAME),1);
+	echo jsonCO(trim($NAME),1);
 	}
-
 ?>
             <!--<div class="container">
                 <div class="card">

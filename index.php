@@ -10,11 +10,23 @@ if(isset($_GET['page'])){
 		pageheader($ur);
 		require "performance.php";
 		break;
+		case 'quality':
+		$ur['title'] = "Quality";
+		$ur["datapage"] = "giftcards";
+		pageheader($ur);
+		require "quality.php";
+		break;
 		case 'rank':
-		$ur['title'] = "Rating Perform";
+		$ur['title'] = "Rating Area";
 		$ur["datapage"] = "homepage";
 		pageheader($ur);
 		require "ranking.php";
+		break;
+		case 'nmrank':
+		$ur['title'] = "Nasabah Menunggak";
+		$ur["datapage"] = "homepage";
+		pageheader($ur);
+		require "rankingnm.php";
 		break;
 		case 'rankco':
 		$ur['title'] = "Rating CO";
@@ -47,9 +59,15 @@ if(isset($_GET['page'])){
 		break;
 		case 'birthday':
 		$ur['title'] = "Birthday";
-		$ur["datapage"] = "wallet";
+		$ur["datapage"] = "birthday";
 		pageheader($ur);
 		include "birthday.php";
+		break;
+		case 'greeting':
+		$ur['title'] = "Birthday";
+		$ur["datapage"] = "greeting";
+		headbirthday();
+		include "greeting.php";
 		break;
 		default:
 		echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
@@ -68,16 +86,30 @@ if(isset($_GET['page'])){
 		pageheader($ur);
 		include "formdaily.php";
 		break;
-		case 'datakaryawan':
-		$ur['title'] = "Update Karyawan";
+		case 'feedback':
+		$ur['title'] = "Send Feedback";
 		$ur['active1'] = "";
 		$ur['active2'] = "";
 		$ur['active3'] = "";
+		$ur["datapage"] = "wallet";
+		$gForm = 'https://docs.google.com/forms/d/e/1FAIpQLSf8T2mRJMxo0e73-Kr1Fv8lrpzib0lr00_bSpb3sN8vqeoPJQ/viewform';
+		pageheader($ur);
+		include "formdaily.php";
+		break;
+		case 'datakaryawan':
+		$ur['title'] = "Update Karyawan";
 		$ur["datapage"] = "wallet";
 		$gForm = 'https://docs.google.com/forms/d/e/1FAIpQLSd0QmMlbUpHz7pjQr15ifQzUONhW8FHEz41wRr2DlrAeSp_WA/viewform';
 		pageheader($ur);
 		include "formdaily.php";
 		break;
+		case 'massmarket':
+			$ur['title'] = "Pendataan Mass Market";
+			$ur["datapage"] = "wallet";
+			$gForm = 'https://docs.google.com/forms/d/e/1FAIpQLSc-zsJnDzvpAI0Km05QCRKWTxRkFI6sJSuBj1H6X8PWr4LjUA/viewform';
+			pageheader($ur);
+			include "formdaily.php";
+			break;		
 		default:
 		echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
 		break;
@@ -185,5 +217,8 @@ if(isset($_GET['page'])){
 	pageheader($ur);
 	include "main.php";
 }
+
 require("footer.php");
+
+
 ?>

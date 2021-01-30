@@ -1,11 +1,13 @@
 
 var googleFormsCSS = function(params) {
-	// jquery
+
+  // jquery
   if (typeof jQuery === 'undefined') {
     console.error('google-forms-css > jquery not found');
     return;
   }
- // form url
+
+  // form url
   var formURL = params.formURL;
   if (!formURL.match('^https:\/\/docs.google.com\/forms\/.*')) {
     console.error('google-forms-css > invalid form url');
@@ -13,11 +15,18 @@ var googleFormsCSS = function(params) {
   }
   formURL = formURL.replace('viewform', 'formResponse');
 
+
+
+
+
+
   // request
   jQuery.get('gform.php?url=' + formURL, function(data) {
+
     //
     // parse
     //
+
     // form data
     var needle = 'var FB_PUBLIC_LOAD_DATA_ = ';
     var start = data.indexOf(needle);
@@ -32,8 +41,10 @@ var googleFormsCSS = function(params) {
     // items
     var items = formData[1][1];
     items.forEach(function(item, index) {
+
       var title = item[1];
       var description = item[2];
+
       // type
       var type;
       switch(item[3]) {
@@ -92,12 +103,16 @@ var googleFormsCSS = function(params) {
         });
       }
 
-//console.log('google-forms-css > title:', title);
-//console.log('google-forms-css > description:', description);
-console.log('google-forms-css > type:', type);
-//console.log('google-forms-css > name:', name);
-//console.log('google-forms-css > required:', required);
-//console.log('google-forms-css > options:', options);
+      //console.log('google-forms-css > title:', title);
+      //console.log('google-forms-css > description:', description);
+      //console.log('google-forms-css > type:', type);
+      //console.log('google-forms-css > name:', name);
+     // console.log('google-forms-css > required:', required);
+     // console.log('google-forms-css > options:', options);
+
+
+
+
 
       //
       // build
@@ -106,7 +121,7 @@ console.log('google-forms-css > type:', type);
       // section
       if (type === 'section') {
 
-        var group = jQuery('<div class="form-group" style="margin: 1rem 0;"></div>');
+        var group = jQuery('<div class="table" style="margin: 1rem 0;"></div>');
 
         // title
         if (title) {
@@ -129,13 +144,9 @@ console.log('google-forms-css > type:', type);
         return;
 
       }
-      
-      
-      
-      
-      var group = jQuery('<div class="form-group"></div>'); 
-      
-          
+
+     
+      var group = jQuery('<div class="form-group"></div>');      
       // label
       if (title || description) {
 
@@ -164,8 +175,7 @@ console.log('google-forms-css > type:', type);
         group.append(labelEl);
 
       }
-      
-  
+
       // checkbox / radio
       if (type === 'checkbox' || type === 'radio') {
 
@@ -268,58 +278,45 @@ console.log('google-forms-css > type:', type);
         group.append(select);
 
       }
-      else{
-  
+
       // email / text / textarea
-      
-     var ww = jQuery('<div class="input-group"></div>'); 
+      else {
+
         if (type === 'textarea') {
           var input = jQuery('<textarea class="form-control" rows="3"></textarea>');
-        } else if (type === 'date') {
-        	var input = jQuery('<input class="form-control">');
-          input.attr('type', type); }
-         else      {
-        
-          
-        	var div = jQuery('<div class="input-group-prepend"><span class="input-group-text">#</span></div>');
-        	var div2 = jQuery('<div class="input-group-append"><span class="input-group-text">orang</span></div>');
+        } else {
+        	
           var input = jQuery('<input class="form-control">');
-          
           input.attr('type', type);
-         
-
         }
 
         input.attr('id', 'google-forms-css-' + name);
         input.attr('name', 'entry.' + name);
         input.attr('placeholder', params.placeholderText);
         input.attr('required', required);
-        
-        
-        ww.append(div);
-        ww.append(input);
-        ww.append(div2);
-        
-        
-       
+
+        group.append(input);
+
       }
-      
+
       jQuery('#google-forms-css-form').append(group);
-      jQuery('#google-forms-css-form').append(ww);
-   
+    
 
     });
     
-    
-    //jQuery('<span class="input-group-text">Rp</span>').insertAfter('label');
     jQuery('#google-forms-css-form').append('<div class="form-group"><button class="btn btn-primary" data-popup=".popup-media" type="submit">Submit</button></group>');
     jQuery('#google-forms-css-loading').hide();
     jQuery('#google-forms-css-main').show();
-
+ 
+   
 
   });
 
-  //
+ 
+ 
+ 
+ 
+ 
   // submit
   //
 

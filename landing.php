@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="generator" content="">
-    <title></title>
+    <title>J7Apps</title>
 
     <!-- manifest meta -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,39 +27,29 @@
     <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/j7appsback.css" rel="stylesheet" id="style">
+    <link href="css/j7apps.css" rel="stylesheet" id="style">
 </head>
 
 <body class="body-scroll d-flex flex-column h-100 menu-overlay" data-page="landing">
     <!-- screen loader -->
-    <div class="container-fluid h-100 loader-display">
+     <div class="container-fluid h-100 loader-display">
         <div class="row h-100">
             <div class="align-self-center col">
                 <div class="logo-loading">
                     <div class="icon icon-100 mb-4 rounded-circle">
-                        <img src="img/TEPAT.gif" alt="" class="w-100">
-                    </div>
-                    <h4 class="text-default">JATENG7</h4>
-                    <p class="text-secondary"></p>
-                    <div class="loader-ellipsis">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <img src="img/jateng7.gif" alt="" class="w-100">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+      </div>
 
 
 
 
     <!-- Begin page content -->
     <main class="flex-shrink-0 main has-footer pt-2">
-        <div class="container mt-3 mb-4 text-center">
-            <h6 class="text-white">	Jateng7Apps</h6>
-        </div>
+
             <!-- Swiper intro -->
             <div class="swiper-container introduction text-white">
                 <div class="swiper-wrapper">
@@ -70,22 +60,21 @@
                                 <img src="img/about.png" alt="" class="mw-100 my-5">
                                 <div class="row">
                                     <div class="container mb-5">
-                                        <h4>Organize Your Team Faster & Easily in One Place!</h4>
-                                        <p>Actually enjoy using, that makes sense and saves you time</p>
+                                        <h3>Awareness</h3>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <!-- <div class="swiper-slide overflow-hidden text-center">
+                    <div class="swiper-slide overflow-hidden text-center">
                         <div class="row no-gutters h-100">
                             <div class="col align-self-center px-3">
                                 <img src="img/consistent.png" alt="" class="mw-100 my-5">
                                 <div class="row">
                                     <div class="container mb-5">
-                                        <h4>Consistent</h4>
-                                        <p>Lorem ipsum dolor sit amet, consect etur adipiscing elit. Sndisse conv allis.</p>
+                                        <h3>Consistent</h3>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -97,16 +86,16 @@
                                 <img src="img/persistent.png" alt="" class="mw-100 my-5">
                                 <div class="row">
                                     <div class="container mb-5">
-                                        <h4>Persistent</h4>
-                                        <p>Lorem ipsum dolor sit amet, consect etur adipiscing elit. Sndisse conv allis.</p>
+                                        <h3>Persistent</h3>
+                                       
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div> 
                 </div>
-                <!-- Add Pagination 
-                <div class="swiper-pagination"></div>-->
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
             </div>
             <!-- Swiper intro ends -->
         </div>

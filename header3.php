@@ -34,7 +34,9 @@ require 'config.php';
     <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/j7apps.css" rel="stylesheet" id="style">
+    <?php
+    echo '<link href="css/j7apps.css?'.time().'" rel="stylesheet" id="style">';
+    ?>
 </head>
 
 <body class="body-scroll d-flex flex-column h-100 menu-overlay" data-page="homepage">
@@ -42,7 +44,7 @@ require 'config.php';
     
     <!-- Begin page content -->
     <main class="flex-shrink-0 main">
-        <!-- Fixed navbar -->
+        <!-- Fixed navbar 
         <header class="header">
             <div class="row">
                 <div class="col-auto px-0">
@@ -52,11 +54,11 @@ require 'config.php';
                 </div>
                 <div class="text-left col align-self-center">
                     <a class="navbar-brand" href="#">
-                        <h5 class="mb-0"><?php echo $ur['title']; ?></h5>
+                        <h5 class="mb-0"></h5><?php echo $ur['title']; ?></h5>
                     </a>
                 </div>
             </div>
-        </header>
+        </header>-->
         <div class="main-container">
             <div class="container">
 

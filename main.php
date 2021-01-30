@@ -3,6 +3,13 @@
        	
             <!-- page content start -->
             <div class="container mb-2">
+                <div class="alert alert-primary" role="alert">
+                    <b>Jateng7Apps</b> masih dalam Beta Tester sehingga beberapa menu masih <i>disable</i><br>
+                    Silakan teman-teman tinggalkan feedback apabila ada bug dan error <a href="/?inp=feedback">disini</a>.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>            	
                 <!-- Swiper -->
                 <div class="swiper-container geserdewe">
                     <div class="swiper-wrapper">
@@ -66,11 +73,11 @@
                     <div class="card-body text-center ">
                         <div class="row justify-content-equal no-gutters">
                             <div class="col-4 col-md-2 mb-3">
-                                <a href="<?php echo $ur['blog_dir'];?>?page=perf" class="icon icon-50 rounded-circle mb-1 bg-default-light text-default"><span class="material-icons">leaderboard</span></a>
+                                <a href="<?php echo '/perform.html';?>" class="icon icon-50 rounded-circle mb-1 bg-default-light text-default"><span class="material-icons">leaderboard</span></a>
                                 <p class="text-secondary"><small>Perform</small></p>
                             </div>
                             <div class="col-4 col-md-2 mb-3">
-                                <a href="" class="icon icon-50 rounded-circle mb-1 bg-default-light text-default"><span class="material-icons">policy</span></a>
+                                <a href="<?php echo '/quality.html';?>" class="icon icon-50 rounded-circle mb-1 bg-default-light text-default"><span class="material-icons">policy</span></a>
                                 <p class="text-secondary"><small>Quality</small></p>
                             </div>
                             <div class="col-4 col-md-2 mb-3">
@@ -120,7 +127,7 @@
                             </div>
                             <div class="col-auto align-self-center">
                                 <h6 class="mb-1">Siapa yang Ultah hari ini?</h6>
-                                <p class="small text-secondary"><a href="/?page=birthday">Cek disini..</php></p>
+                                <p class="small text-secondary"><a href="/birthday.html">Cek disini..</a></p>
                             </div>
                         </div>
                     </div>
@@ -129,20 +136,16 @@
 
 
 
-            <div class="container">
+            <div class="container mb-4">
                 <div class="card">
-                    <div class="card-header">
-                        <h6 class="mb-0">Pages</h6>
-                    </div>
-                    <div class="card-body px-0 pt-0">
-                        <div class="list-group list-group-flush border-top border-color">
-                            <a href="#" class="list-group-item list-group-item-action border-color">About</a>
-                            <a href="#" class="list-group-item list-group-item-action border-color">Analytics</a>
-                            <a href="#" class="list-group-item list-group-item-action border-color">Quiz</a>
-                            <a href="#" class="list-group-item list-group-item-action border-color">Gift Cards</a>
-                            <a href="#" class="list-group-item list-group-item-action border-color">Event</a>
-                            <a href="#" class="list-group-item list-group-item-action border-color text-primary text-center">More 20+ pages</a>
+                    <div class="card-body text-left text-md-center">
+                        <h5 class="text-secondary">J7 Info</h5>
+                        
+                        <div class="row my-3 justify-content-center">
+                            <div class="col-10 col-md-4 mx-auto"><img src="img/startup__isometric.png" alt="" class="mw-100"></div>
                         </div>
+                        <p class="text-secondary mt-3">Jateng7Apps was developed to support work activities at BTPN Syariah, especially in REG JATENG7. Useful for managing work tasks and daily monitoring. Jateng7Apps can help achieve team performance faster to achieve plans according to the timeline..</p>
+                        
                     </div>
                 </div>
             </div>

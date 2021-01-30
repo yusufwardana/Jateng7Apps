@@ -1,0 +1,32 @@
+
+ErrorDocument 404 /404.php
+ErrorDocument 403 /404.php
+RewriteEngine On
+RewriteBase /
+RewriteRule ^perform.html$ ?page=perf [L]
+RewriteRule ^quality.html$ ?page=quality [L]
+RewriteRule ^dashboard.html$ ?page=profile [L]
+RewriteRule ^birthday.html$ ?page=birthday [L]
+RewriteRule ^whos$ ?whos [L]
+RewriteRule ^about$ ?about [L]
+RewriteRule ^sitemap$ ?sitemap [L]
+RewriteRule ^bbcode$ ?bbcode [L]
+RewriteRule ^smiley$ ?smiley [L]
+RewriteRule ^welcome.html$ landing.php [L]
+RewriteRule ^login.html$ login.php [L]
+
+RewriteRule ^category/([A-Za-z0-9-]+)$ category/$1/ [R]
+RewriteRule ^category/([A-Za-z0-9-]+)/([0-9]+)$ category/$1/$2/ [R]
+RewriteRule ^page/([0-9]+)$ page/$1/ [R]
+RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)$ $1/$2/ [R]
+RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/comment$ $1/$2/comment/ [R]
+RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/comment/([0-9]+)$ $1/$2/comment/$3/ [R]
+
+RewriteRule ^([0-9]+)$ index.php?blog=$1 [L]
+RewriteRule ^category/([A-Za-z0-9-]+)/$ index.php?category=$1 [L]
+RewriteRule ^category/([A-Za-z0-9-]+)/([0-9]+)\/$ index.php?category=$1&p=$2 [L]
+RewriteRule ^page/([0-9]+)\/$ index.php?p=$1 [L]
+RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)\/$ index.php?post=$2&category=$1 [L]
+RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/comment\/$ comment.php?post=$2&cat=$1 [L]
+RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/comment/([0-9]+)\/$ comment.php?post=$2&cat=$1&&p=$3 [L]
+

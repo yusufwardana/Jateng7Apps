@@ -16,7 +16,7 @@ $fetch->close();
                             <i class="material-icons display-4">redeem</i>
                         </div>
                         <h2>Congratulation!</h2>
-                        <h6 class="text-secondary mb-3">Thanks <?php echo $NAME;?> </h6>
+                        <h6 class="text-secondary mb-3">Thank <?php echo $NAME;?> </h6>
                         <p class="text-secondary">Thank you for submit, Your response has been recorded .</p>
                     </div>
                 </div>

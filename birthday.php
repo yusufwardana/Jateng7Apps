@@ -1,4 +1,5 @@
-<div class="main-container"><div class="container">
+<div class="main-container">
+	<div class="container">
 
 <?php
 
@@ -7,7 +8,7 @@ $tglNow = date("d");
 $blnNow = date("m");
 //$now = date("Y-m-d");
 //$data = "1994-03-07";
-if ($stmt = mysqli_query($connect, "SELECT * FROM accounts WHERE DAY(birthday) = '$tglNow' AND MONTH(birthday) = '$blnNow'")) {
+if ($stmt = mysqli_query($connect, "SELECT * FROM optima WHERE DAY(BIRTHDAY) = '$tglNow' AND MONTH(BIRTHDAY) = '$blnNow'")) {
 while ($row=mysqli_fetch_array($stmt,MYSQLI_ASSOC)){
 
    
@@ -29,7 +30,7 @@ while ($row=mysqli_fetch_array($stmt,MYSQLI_ASSOC)){
 <div class="backdrop"></div> 
    <div class="card-body overflow-hidden"><div class="background"><img src="img/birth.png" alt=""></div>
    	
-   <h4 class="mb-0 mt-3"><?php echo $row['nama']; ?></h4>
+   <h5 class="mb-0 mt-3"><?php echo $row['NAME']; ?></h5>
       
    </div>
    <div class="card-footer">
@@ -40,8 +41,8 @@ while ($row=mysqli_fetch_array($stmt,MYSQLI_ASSOC)){
                <p class="small ">This Day</p>
            </div>
            <div class="col-auto align-self-center text-right">
-               <p class="mb-0"><?php echo $row['mms']; ?></p>
-               <p class="small"><?php echo $row['area']; ?></p>
+               <p class="mb-0"><?php echo $row['MMS']; ?></p>
+               <p class="small"><?php echo $row['AREA']; ?></p>
            </div>
 
        </div>
@@ -55,4 +56,14 @@ while ($row=mysqli_fetch_array($stmt,MYSQLI_ASSOC)){
 }
 
 ?>
-</div></div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+  
