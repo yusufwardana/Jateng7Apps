@@ -127,7 +127,7 @@
                             </div>
                             <div class="col-auto align-self-center">
                                 <h6 class="mb-1">Siapa yang Ultah hari ini?</h6>
-                                <p class="small text-secondary"><a href="/birthday.html">Cek disini..</a></p>
+                                <p class="small text-secondary"><a href="/?page=greeting">Cek disini..</a></p>
                             </div>
                         </div>
                     </div>

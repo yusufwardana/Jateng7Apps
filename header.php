@@ -1,8 +1,7 @@
 <?php
-date_default_timezone_set("Asia/Bangkok");
-
-require("config.php");
+date_default_timezone_set("Asia/Jakarta");
 require("auth.php");
+require("config.php");
 require("func.php");
 //$csrftoken = '<meta name="csrf-token" content="'.$_SESSION['csrf_token'].'">';
 //$cssextra = '<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">';
@@ -18,7 +17,7 @@ echo '<!doctype html>
     <meta name="generator" content="">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="manifest" href="manifest.json">';
-    if($ur["title"]) echo '<title>'.$ur["title"].'</title>';
+    if(isset($ur["title"])) echo '<title>'.$ur["title"].'</title>';
 echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="'.$ur['blog_dir'].'vendor/swiper/css/swiper.min.css" rel="stylesheet">
@@ -27,7 +26,7 @@ echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="
 
 
 echo '</head>';
-if($ur["datapage"]){ 
+if(isset($ur["datapage"])){ 
     echo '<body class="body-scroll d-flex flex-column h-100 menu-overlay" data-page="'.$ur["datapage"].'">';
 	}else{
 	echo '<body class="body-scroll d-flex flex-column h-100 menu-overlay">';
@@ -88,3 +87,6 @@ echo '<!DOCTYPE html>
 	
 }
 //echo erDebug($ur);
+//print_r($_SESSION);
+
+?>

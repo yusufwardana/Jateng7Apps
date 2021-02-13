@@ -7,7 +7,7 @@
                     </div>
                     <div class="card-body px-0 pt-0">
                         <div class="list-group list-group-flush border-top border-color">
-                            <a href="<?php echo $ur['blog_dir'];?>?inp=quality" class="list-group-item list-group-item-action border-color">
+                            <a href="/?inp=quality" class="list-group-item list-group-item-action border-color">
                                 <div class="row">
                                     <div class="col-auto">
                                         <div class="avatar avatar-50 bg-default-light text-default rounded">
@@ -41,12 +41,12 @@
                                         </div>
                                     </div>
                                     <div class="col align-self-center pl-0">
-                                        <h6 class="mb-1">Nasabah Menunggak</h6>
+                                        <h6 class="mb-1">NM Summary CO</h6>
                                         <p class="text-secondary">Rating Per CO/SCO</p>
                                     </div>
                                 </div>
                             </a>
-                            <a href="" class="list-group-item list-group-item-action border-color">
+                            <a href="/?page=nmarea" class="list-group-item list-group-item-action border-color">
                                 <div class="row">
                                     <div class="col-auto">
                                         <div class="avatar avatar-50 bg-default-light text-default rounded">
@@ -54,12 +54,12 @@
                                         </div>
                                     </div>
                                     <div class="col align-self-center pl-0">
-                                        <h6 class="mb-1">Rating Produktivitas Area</h6>
+                                        <h6 class="mb-1">NM Summary Area</h6>
                                         <p class="text-secondary">Rating Per Area</p>
                                     </div>
                                 </div>
                             </a>
-                            <a href="" class="list-group-item list-group-item-action border-color">
+                            <a href="/calc.php" class="list-group-item list-group-item-action border-color">
                                 <div class="row">
                                     <div class="col-auto">
                                         <div class="avatar avatar-50 bg-default-light text-default rounded">
@@ -67,8 +67,8 @@
                                         </div>
                                     </div>
                                     <div class="col align-self-center pl-0">
-                                        <h6 class="mb-1">KPI & Insentif</h6>
-                                        <p class="text-secondary">Hitung KPI dan Insentif</p>
+                                        <h6 class="mb-1">RR Adjusted Calculator</h6>
+                                        <p class="text-secondary">Hitung RR Adjusted</p>
                                     </div>
                                 </div>
                             </a>

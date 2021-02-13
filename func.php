@@ -337,7 +337,11 @@ echo'
     }  
 
 }
-
+function namadepan($str){
+	$pecah=explode(" ",$str);
+	$nama = $pecah[0];
+	return $nama;
+}
 //Ambil Detail dari Ranking CO
 function resumeviewProfile($nik){
 $url = "https://spreadsheets.google.com/feeds/list/1Md5Q7S0pTMF0Ftb9U-Wor_ywQdL5HsuB2fryXUPwZ-8/1/public/full?alt=json";
@@ -1775,4 +1779,7 @@ $gapall = $gapalljn+$gapallwbc+$gapallwbc;
 //echo erDebug($jsondata);
 
 }
+
+
+
 ?>

@@ -146,3 +146,4 @@ $(window).on('scroll', function () {
 $(window).on('resize', function () {
 
 });
+

@@ -7,7 +7,7 @@
                     </div>
                     <div class="card-body px-0 pt-0">
                         <div class="list-group list-group-flush border-top border-color">
-                            <a href="<?php echo $ur['blog_dir'];?>?inp=quality" class="list-group-item list-group-item-action border-color">
+                            <a href="<?php echo $ur['blog_dir'];?>?inp=perf" class="list-group-item list-group-item-action border-color">
                                 <div class="row">
                                     <div class="col-auto">
                                         <div class="avatar avatar-50 bg-default-light text-default rounded">

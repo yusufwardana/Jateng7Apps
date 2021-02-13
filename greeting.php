@@ -1,9 +1,42 @@
+<?php
+
+//$data = "1994-03-07";
+$tglNow = date("d");
+$blnNow = date("m");
+//$now = date("Y-m-d");
+//$data = "1994-03-07";
+if ($stmt = mysqli_query($connect, "SELECT * FROM optima WHERE DAY(BIRTHDAY) = '$tglNow' AND MONTH(BIRTHDAY) = '$blnNow'")) {
+while ($row=mysqli_fetch_array($stmt,MYSQLI_ASSOC)){
+$nama = $row['NAME'];
+$mms = $row['MMS'];
+$area = $row['AREA'];
+
+$cast[] = array('nama' => $nama, 'mms' => $mms, 'area' => $area);
+}
+//$cast = array();
+if(empty($cast)){
+
+echo '<div class="container">
+
+</div>';
+}else{
+
+?>
   <div class="container">
     <div class="one">
-      <h1 class="one">Hey
-        <span id="name">Yusuf</span>
+
+      <h1 class="one">Hey       
+
       </h1>
-      <p class="two" id="greetingText">I really like your name btw!</p>
+      <p class="two" id="greetingText">
+      <?php
+    	foreach($cast as $rows) {
+    		echo '<i id="name">'.$rows['nama'].'</i><br>';    		
+    	} 
+    	?>      	
+      	I really like your name btw!
+      	
+      </p>
     </div>
     <div class="three">
       <p>It's your birthday!!! :D</p>
@@ -108,3 +141,12 @@
       <p class="last-smile">:)</p>
     </div>
   </div>
+<?php
+
+
+}
+
+}
+
+
+?>

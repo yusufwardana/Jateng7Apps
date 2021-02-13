@@ -24,7 +24,7 @@ if(isset($_GET['page'])){
 		break;
 		case 'nmrank':
 		$ur['title'] = "Nasabah Menunggak";
-		$ur["datapage"] = "homepage";
+		$ur["datapage"] = "tooltips";
 		pageheader($ur);
 		require "rankingnm.php";
 		break;
@@ -65,12 +65,15 @@ if(isset($_GET['page'])){
 		break;
 		case 'greeting':
 		$ur['title'] = "Birthday";
-		$ur["datapage"] = "greeting";
+		//$ur["datapage"] = "greeting";
 		headbirthday();
 		include "greeting.php";
 		break;
 		default:
-		echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
+	  $ur['title'] = "404 Not Found";
+		$ur["datapage"] = "wallet";
+		pageheader($ur);
+		include "error.php";
 		break;
 	}
 }elseif(isset($_GET['inp'])){
@@ -111,7 +114,11 @@ if(isset($_GET['page'])){
 			include "formdaily.php";
 			break;		
 		default:
-		echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
+		//error
+	  $ur['title'] = "404 Not Found";
+		$ur["datapage"] = "wallet";
+		pageheader($ur);
+		include "error.php";
 		break;
 		}
 }elseif(isset($_GET['bm'])){
